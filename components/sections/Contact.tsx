@@ -22,7 +22,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-24 md:py-32 bg-background">
-      <div className="container max-w-6xl mx-auto px-6">
+      <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-16">
           
           {/* Coluna da Esquerda */}

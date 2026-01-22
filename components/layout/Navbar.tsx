@@ -42,7 +42,7 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled ? "bg-background/70 backdrop-blur-xl border-b border-border py-3" : "bg-transparent py-5"
     }`}>
-      <div className="container max-w-6xl mx-auto px-6">
+      <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-14 md:h-16">
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="font-heading text-xl md:text-2xl font-bold text-foreground tracking-tight group">
             Rafaelly<span className="text-accent group-hover:animate-pulse">.</span>

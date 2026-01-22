@@ -13,7 +13,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-24 md:py-32 bg-secondary/20">
-      <div className="container max-w-6xl mx-auto px-6">
+      <div className="container mx-auto px-6">
         <div className={`grid ${isMobile ? 'grid-cols-1' : 'md:grid-cols-2'} gap-12 md:gap-16 items-center`}>
           
           <div className="animate-slide-up">
