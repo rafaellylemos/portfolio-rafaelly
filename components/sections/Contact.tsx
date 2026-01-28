@@ -2,6 +2,8 @@
 
 import { Mail, Phone, MapPin, ArrowUpRight, Github, Linkedin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -27,9 +29,9 @@ const Contact = () => {
           
           {/* Coluna da Esquerda */}
           <div className="animate-slide-up">
-            <span className="text-accent text-sm font-semibold uppercase tracking-widest mb-4 block">
+            <Badge variant="outline" className="mb-4 border-accent/30 text-accent uppercase tracking-widest">
               Contato
-            </span>
+            </Badge>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
               Vamos criar algo incrível juntos?
             </h2>
@@ -39,77 +41,80 @@ const Contact = () => {
             </p>
 
             <div className="space-y-4">
-              {/* Email Card */}
-              <a
-                href="mailto:rafaellyltbmarques@gmail.com"
-                onClick={() => handleContactAction("email")}
-                className="flex items-center gap-4 p-4 bg-transparent border border-border/40 rounded-2xl hover:border-accent/50 hover:bg-accent/5 transition-all group backdrop-blur-sm"
-              >
-                <div className="p-3 bg-accent/10 rounded-xl border border-accent/20">
-                  <Mail className="w-5 h-5 text-accent" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Email</p>
-                  <p className="text-foreground font-medium">rafaellyltbmarques@gmail.com</p>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+              {/* Email */}
+              <a href="mailto:rafaellyltbmarques@gmail.com" onClick={() => handleContactAction("email")}>
+                <Card className="bg-transparent border-border/40 hover:border-accent/50 hover:bg-accent/5 transition-all group cursor-pointer">
+                  <CardContent className="p-4 flex items-center gap-4">
+                    <div className="p-3 bg-accent/10 rounded-xl border border-accent/20">
+                      <Mail className="w-5 h-5 text-accent" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Email</p>
+                      <p className="text-foreground font-medium">rafaellyltbmarques@gmail.com</p>
+                    </div>
+                    <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+                  </CardContent>
+                </Card>
               </a>
 
-              {/* Telefone Card */}
-              <a
-                href="tel:+5581998460022"
-                onClick={() => handleContactAction("tel")}
-                className="flex items-center gap-4 p-4 bg-transparent border border-border/40 rounded-2xl hover:border-accent/50 hover:bg-accent/5 transition-all group backdrop-blur-sm"
-              >
-                <div className="p-3 bg-accent/10 rounded-xl border border-accent/20">
-                  <Phone className="w-5 h-5 text-accent" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Telefone / WhatsApp</p>
-                  <p className="text-foreground font-medium">(81) 99846-0022</p>
-                </div>
-                <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+              {/* Telefone */}
+              <a href="tel:+5581998460022" onClick={() => handleContactAction("tel")}>
+                <Card className="bg-transparent border-border/40 hover:border-accent/50 hover:bg-accent/5 transition-all group cursor-pointer">
+                  <CardContent className="p-4 flex items-center gap-4">
+                    <div className="p-3 bg-accent/10 rounded-xl border border-accent/20">
+                      <Phone className="w-5 h-5 text-accent" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Telefone / WhatsApp</p>
+                      <p className="text-foreground font-medium">(81) 99846-0022</p>
+                    </div>
+                    <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+                  </CardContent>
+                </Card>
               </a>
 
-              {/* Localização Card */}
-              <div className="flex items-center gap-4 p-4 bg-transparent border border-border/40 rounded-2xl backdrop-blur-sm">
-                <div className="p-3 bg-accent/10 rounded-xl border border-accent/20">
-                  <MapPin className="w-5 h-5 text-accent" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">Localização</p>
-                  <p className="text-foreground font-medium">Recife, PE — Disponível para o mundo</p>
-                </div>
-              </div>
+              {/* Localização */}
+              <Card className="bg-transparent border-border/40">
+                <CardContent className="p-4 flex items-center gap-4">
+                  <div className="p-3 bg-accent/10 rounded-xl border border-accent/20">
+                    <MapPin className="w-5 h-5 text-accent" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">Localização</p>
+                    <p className="text-foreground font-medium">Recife, PE — Disponível para o mundo</p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
 
           {/* Coluna da Direita */}
           <div className="animate-slide-up animation-delay-200">
-            <div className="h-full p-8 md:p-10 bg-secondary/10 border border-border/60 backdrop-blur-md rounded-3xl flex flex-col justify-between shadow-sm">
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-semibold mb-8">
-                  <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                  Disponível para Projetos
+            <Card className="h-full bg-secondary/10 border-border/60 backdrop-blur-md flex flex-col justify-between overflow-hidden shadow-sm">
+              <CardHeader className="p-8 md:p-10 pb-0">
+                <div className="w-fit">
+                  <Badge className="bg-accent/10 border-accent/20 text-accent flex gap-2 items-center hover:bg-accent/20 transition-colors">
+                    <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
+                    Disponível para Projetos
+                  </Badge>
                 </div>
-
-                <h3 className="font-heading text-2xl md:text-3xl font-semibold text-foreground mb-4">
+                <CardTitle className="font-heading text-2xl md:text-3xl font-semibold mt-8">
                   Pronta para o próximo desafio técnico
-                </h3>
-                <p className="text-muted-foreground mb-8 font-body leading-relaxed">
+                </CardTitle>
+                <p className="text-muted-foreground mt-4 font-body leading-relaxed">
                   Seja para liderar a migração de um produto ou fortalecer a qualidade do seu frontend, 
                   estou pronta para aplicar minha experiência internacional no seu negócio.
                 </p>
-              </div>
+              </CardHeader>
 
-              <div>
+              <CardContent className="p-8 md:p-10 flex flex-col gap-8">
                 <button
                   onClick={() => handleContactAction("email")}
-                  className="flex items-center justify-center gap-2 w-full md:w-max px-8 py-4 bg-foreground text-background font-bold rounded-2xl hover:bg-accent hover:text-accent-foreground transition-all duration-300 shadow-lg shadow-foreground/5 mb-8"
+                  className="group flex items-center justify-center gap-2 w-full md:w-max px-8 py-4 bg-foreground text-background font-bold rounded-2xl hover:bg-accent hover:text-accent-foreground transition-all duration-300 shadow-lg"
                 >
                   <a href="mailto:rafaellyltbmarques@gmail.com" className="flex items-center gap-2">
                     Enviar Mensagem
-                    <ArrowUpRight className="w-5 h-5" />
+                    <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </a>
                 </button>
 
@@ -130,8 +135,8 @@ const Contact = () => {
                     <Github className="w-5 h-5" />
                   </a>
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
 
         </div>

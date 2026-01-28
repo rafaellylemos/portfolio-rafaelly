@@ -2,6 +2,8 @@
 
 import { MapPin, Briefcase, ShieldCheck } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Card, CardContent } from "@/components/ui/card"; // Importação do Card
+import { Badge } from "@/components/ui/badge"; // Importação do Badge
 
 const About = () => {
   const isMobile = useIsMobile();
@@ -17,7 +19,9 @@ const About = () => {
         <div className={`grid ${isMobile ? 'grid-cols-1' : 'md:grid-cols-2'} gap-12 md:gap-16 items-center`}>
           
           <div className="animate-slide-up">
-            <span className="text-accent text-sm font-semibold uppercase tracking-widest mb-4 block">Sobre Mim</span>
+            <Badge variant="outline" className="mb-4 border-accent/30 text-accent uppercase tracking-widest">
+              Sobre Mim
+            </Badge>
             <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6">
               Desenvolvedora Frontend com foco em estabilidade e autonomia
             </h2>
@@ -35,16 +39,25 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6">
-            {stats.map((stat, index) => (
-              <div key={stat.label} className={`p-6 ${isMobile ? 'p-5' : 'md:p-8'} bg-transparent border border-border/40 hover:border-accent/30 transition-all group rounded-2xl`}>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-4xl font-heading font-semibold text-foreground group-hover:text-accent transition-colors">{stat.value}</p>
-                    <p className="text-muted-foreground mt-2 font-medium uppercase text-xs tracking-wider">{stat.label}</p>
+            {stats.map((stat) => (
+              <Card 
+                key={stat.label} 
+                className="bg-card border-border/40 hover:border-accent/30 transition-all group overflow-hidden"
+              >
+                <CardContent className="p-6 md:p-8">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-4xl font-heading font-semibold text-foreground group-hover:text-accent transition-colors tracking-tight">
+                        {stat.value}
+                      </p>
+                      <p className="text-muted-foreground mt-2 font-medium uppercase text-[10px] tracking-widest">
+                        {stat.label}
+                      </p>
+                    </div>
+                    <ShieldCheck className="w-8 h-8 text-accent/20 group-hover:text-accent/50 transition-colors" />
                   </div>
-                  <ShieldCheck className="w-8 h-8 text-accent/20 group-hover:text-accent/50 transition-colors" />
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
