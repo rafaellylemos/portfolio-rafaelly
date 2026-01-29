@@ -2,8 +2,8 @@
 
 import { MapPin, Briefcase, ShieldCheck } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { Card, CardContent } from "@/components/ui/card"; // Importação do Card
-import { Badge } from "@/components/ui/badge"; // Importação do Badge
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const About = () => {
   const isMobile = useIsMobile();
